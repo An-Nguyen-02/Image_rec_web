@@ -17,12 +17,12 @@ class App extends React.Component{
       searchField : '',
       imgURL:'',
       webpage: 'sign_out',
-      box: {
+      boxes: [{
           leftCol: 0,
           topRow: 0,
           rightCol: 0,
           bottomRow: 0
-        },
+        }],
       user:
       {
         id: '',
@@ -51,16 +51,21 @@ class App extends React.Component{
     const image = document.getElementById('inputimage');
     const width = Number(image.width);
     const height = Number(image.height);
-    return {
-      leftCol: clarifaiFace.left_col * width,
-      topRow: clarifaiFace.top_row * height,
-      rightCol: width - (clarifaiFace.right_col * width),
-      bottomRow: height - (clarifaiFace.bottom_row * height)
-    }
+    return data.outputs[0].data.regions.map(face=>{
+       const clarifaiFace = face.region_info.bounding_box;
+       return{
+          leftCol: clarifaiFace.left_col * width,
+          topRow: clarifaiFace.top_row * height,
+          rightCol: width - (clarifaiFace.right_col * width),
+          bottomRow: height - (clarifaiFace.bottom_row * height)
+       }
+    })
+      
   }
+  
 
-  displayFaceBox = (box) => {
-    this.setState({box: box});
+  displayFaceBox = (boxes) => {
+    this.setState({boxes: boxes});
   }
 
   onSearchChange = (event) =>{
@@ -103,7 +108,7 @@ class App extends React.Component{
   }
 
   render() {
-    const {imgURL, webpage, user, box} = this.state;
+    const {imgURL, webpage, user, boxes} = this.state;
     return(
     <div className="App">
         <Particles params={particles_option} />
@@ -113,7 +118,7 @@ class App extends React.Component{
             <Logo />
             <Rank name={user.name} rank={user.entries}/>
             <Input searchChange={this.onSearchChange} buttonClick={this.onButtonClick}/>
-            <Image imgURL={imgURL} box={box}/>
+            <Image imgURL={imgURL} boxes={boxes}/>
           </div>:
           ( webpage === 'sign_out' ?
             <SignInForm PageChange={this.onPageChange} loadUser={this.loadUser}/>: 
