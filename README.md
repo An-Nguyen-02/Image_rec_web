@@ -14,4 +14,13 @@ This is a website that recognize multiple faces via a png url ([example](https:/
 ## Notes:
 - The model id in <em>react-api/controllers/image.js</em> may change due to Clarifai so you need to read Clarifai documentation to change it.
 
+## Upcoming features:
+### Goal: more secure, scalable, overall features, easier to download, understand, fix the code.
+- Convert into Typescript.
+- Sessions management by using JWT storing in Redis.
+- Set up Docker to run server and database easier.
+- Have CI/CD process by using CircleCI.
+- Make badges for user using AWS lambda.
+- Implement remote server by Docker
+
 [clarifai]: (https://www.clarifai.com/models/ai-face-detection)
