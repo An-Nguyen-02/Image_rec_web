@@ -1,6 +1,6 @@
 # Faces detection website.
 ## Description:
-This is a website that recognize multiple faces via a png url ([example](https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.is.fi%2Fviihde%2Fart-2000008395912.html&psig=AOvVaw342EiO-mqnzyxDra62jcW-&ust=1641739520678000&source=images&cd=vfe&ved=0CAsQjRxqFwoTCIj8pr6yovUCFQAAAAAdAAAAABAD)). It has Log in feature (run on PostgreSQL database) to store user entries. The face detection model is from [Clarifai][clarifai].</br>
+This is a website that recognize multiple faces via a png url ([example](https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.is.fi%2Fviihde%2Fart-2000008395912.html&psig=AOvVaw342EiO-mqnzyxDra62jcW-&ust=1641739520678000&source=images&cd=vfe&ved=0CAsQjRxqFwoTCIj8pr6yovUCFQAAAAAdAAAAABAD)). It has Log in feature (run on PostgreSQL database) to store user entries. The face detection model is from [Clarifai][clarifai]. This website was made for practicing purposes, practical introduction to the web developing path.</br>
 ## How to use:
 1. Clone this repo
 2. Run `npm install`
